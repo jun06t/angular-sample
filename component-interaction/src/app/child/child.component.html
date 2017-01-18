@@ -1,3 +1,7 @@
-<p>
-  child works!
-</p>
+<div>
+  <h1>Child</h1>
+  <p>Message from parent: </p>
+  <p>{{ msg }}</p>
+  <button (click)=sendMessage()>Send msg to parent</button>
+  <button (click)=resetMessage()>Reset</button>
+</div>

@@ -1,3 +1,8 @@
-<p>
-  parent works!
-</p>
+<div>
+  <h1>Parent</h1>
+  <p>Message from child: </p>
+  <p>{{ msg }}</p>
+  <button (click)=sendMessage()>Send msg to child</button>
+  <button (click)=resetMessage()>Reset</button>
+  <app-child></app-child>
+</div>

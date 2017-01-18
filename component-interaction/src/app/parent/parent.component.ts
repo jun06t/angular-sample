@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User, DataService } from '../shared/data.service';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-parent',
@@ -8,14 +8,22 @@ import { User, DataService } from '../shared/data.service';
   providers: [ DataService ]
 })
 export class ParentComponent implements OnInit {
-  private user: User;
+  private msg: string;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.data$.subscribe(
-      user => {
-        this.user = user;
+    this.dataService.toParentData$.subscribe(
+      msg => {
+        this.msg = msg;
       });
+  }
+
+  sendMessage() {
+    this.dataService.sendMsgToChild('Hello Child!');
+  }
+
+  resetMessage() {
+    this.dataService.sendMsgToChild('');
   }
 }
