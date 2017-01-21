@@ -1,0 +1,12 @@
+<form [formGroup]="f">
+  <label>Firstname:</label>
+  <input type="text" formControlName="first">
+
+  <label>Lastname:</label>
+  <input type="text" formControlName="last">
+
+  <button type="submit" (click)="loginForm()">Submit</button>
+  <div>
+    <span>{{ f.value | json }}</span>
+  </div>
+</form>
