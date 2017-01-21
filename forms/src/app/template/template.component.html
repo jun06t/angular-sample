@@ -1,0 +1,12 @@
+<form #f="ngForm">
+  <label>Firstname:</label>
+  <input type="text" name="first" ngModel>
+
+  <label>Lastname:</label>
+  <input type="text" name="last" ngModel>
+
+  <button type="submit" (click)="loginForm(f.value)">Submit</button>
+  <div>
+    <span>{{ f.value | json }}</span>
+  </div>
+</form>
