@@ -1,10 +1,10 @@
-<h2>[ngModel]</h2>
+<h2>[(ngModel)]</h2>
 <form #f="ngForm">
   <label>Firstname:</label>
-  <input type="text" name="first" [ngModel]="user.first">
+  <input type="text" name="first" [(ngModel)]="user.first">
 
   <label>Lastname:</label>
-  <input type="text" name="last" [ngModel]="user.last">
+  <input type="text" name="last" [(ngModel)]="user.last">
 
   <button type="submit" (click)="loginForm(f.value)">Submit</button>
   <div>
