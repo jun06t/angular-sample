@@ -8,6 +8,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class ModelComponent implements OnInit {
   public f: FormGroup;
+  private body: any;
 
   constructor(private fb: FormBuilder) {
   }
@@ -17,9 +18,15 @@ export class ModelComponent implements OnInit {
       'first':['', Validators.required],
       'last':['', Validators.required]
     });
+
+    this.f.valueChanges
+      .subscribe(value => {
+        console.log(value);
+        this.body = value;
+      });
   }
 
   loginForm() {
-    console.log(this.f.value);
+    console.log(this.body);
   }
 }
