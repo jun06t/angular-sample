@@ -34,6 +34,10 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  containerClick($event) {
+    $event.stopPropagation();
+  }
+
   close() {
     if (this.currentComponent) {
       this.currentComponent.destroy();

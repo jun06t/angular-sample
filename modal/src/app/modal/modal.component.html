@@ -1,5 +1,5 @@
-<div class="modal" [style.display]="display">
-  <div class="container" [style.display]="display">
+<div class="modal" [style.display]="display" (click)="close()">
+  <div class="container" [style.display]="display" (click)="containerClick($event)">
     <button (click)="close()">Close</button>
     <div class="content" #content></div>
   </div>
