@@ -9,6 +9,7 @@ import { Content1Component } from '../content1/content1.component';
 })
 export class ModalComponent implements OnInit {
   currentComponent = null;
+  display = 'none';
 
   @ViewChild('content', { read: ViewContainerRef }) content: ViewContainerRef;
 
@@ -27,9 +28,16 @@ export class ModalComponent implements OnInit {
     }
 
     this.currentComponent = component;
+    this.display = '';
   }
 
   ngOnInit() {
   }
 
+  close() {
+    if (this.currentComponent) {
+      this.currentComponent.destroy();
+    }
+    this.display = 'none';
+  }
 }

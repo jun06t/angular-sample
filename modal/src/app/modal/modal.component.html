@@ -1,5 +1,6 @@
-<div class="modal">
-  <div class="container">
+<div class="modal" [style.display]="display">
+  <div class="container" [style.display]="display">
+    <button (click)="close()">Close</button>
     <div class="content" #content></div>
   </div>
 </div>
