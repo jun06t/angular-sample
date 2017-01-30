@@ -10,6 +10,6 @@ export class Content1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
 }

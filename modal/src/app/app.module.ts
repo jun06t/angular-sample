@@ -21,6 +21,7 @@ import { Content2Component } from './content2/content2.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [Content1Component, Content2Component]
 })
 export class AppModule { }

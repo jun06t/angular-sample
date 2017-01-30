@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 import { Content1Component } from '../content1/content1.component';
-import { Content2Component } from '../content2/content2.component';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
   currentComponent = null;
@@ -16,12 +15,18 @@ export class ModalComponent implements OnInit {
   constructor(private resolver: ComponentFactoryResolver) { }
 
   @Input() set componentData(data: any) {
+    if (!data) {
+      return;
+    }
+
+    let factory = this.resolver.resolveComponentFactory(data);
+    let component = this.content.createComponent(factory);
+
     if (this.currentComponent) {
       this.currentComponent.destroy();
     }
 
-    let factory = this.resolver.resolveComponentFactory(data);
-
+    this.currentComponent = component;
   }
 
   ngOnInit() {
