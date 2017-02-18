@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef ComponentFactoryResolver } from '@angular/core';
+import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
