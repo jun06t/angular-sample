@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.css']
 })
-export class ConfirmationComponent implements OnInit {
+export class ConfirmationComponent {
 
-  constructor() { }
+  constructor(private modal: ModalService) { }
 
-  ngOnInit() {
+  close() {
+    this.modal.close();
   }
-
 }

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal/modal.service';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { CompleteComponent } from './complete/complete.component';
 
@@ -20,7 +21,11 @@ import { CompleteComponent } from './complete/complete.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ModalService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ConfirmationComponent,
+    CompleteComponent
+  ]
 })
 export class AppModule { }
