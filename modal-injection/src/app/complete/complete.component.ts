@@ -8,7 +8,7 @@ export const COMPLETE_TEXT_TOKEN = new OpaqueToken('complete.text');
   styleUrls: ['./complete.component.css']
 })
 export class CompleteComponent {
-  public test: string;
+  public text: string;
 
   constructor(@Inject(COMPLETE_TEXT_TOKEN) t: string) {
     this.text = t;
