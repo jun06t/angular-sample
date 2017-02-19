@@ -6,15 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalService } from './modal/modal.service';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { CompleteComponent } from './complete/complete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
-    ConfirmationComponent,
-    CompleteComponent
+    CompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +22,7 @@ import { CompleteComponent } from './complete/complete.component';
   providers: [ModalService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ConfirmationComponent,
-    CompleteComponent
+    CompleteComponent,
   ]
 })
 export class AppModule { }

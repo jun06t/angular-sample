@@ -1,7 +1,13 @@
-.complete {
+.modal {
   text-align: center;
 }
 
-.text {
+.title {
   margin-top: 150px;
+  font-size: 30px;
+}
+
+.text {
+  margin-top: 50px;
+  font-size: 20px;
 }

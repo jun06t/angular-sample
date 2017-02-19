@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalService } from './modal/modal.service';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
-import { CompleteComponent } from './complete/complete.component';
+import { CompleteComponent, COMPLETE_TEXT_TOKEN } from './complete/complete.component';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +10,13 @@ import { CompleteComponent } from './complete/complete.component';
 export class AppComponent {
   constructor(private modal: ModalService) {}
 
-  confirm(): void {
-    this.modal.open(ConfirmationComponent);
+  register(): void {
+    const provider = { provide: COMPLETE_TEXT_TOKEN, useValue: '登録が完了しました' };
+    this.modal.open(CompleteComponent, provider);
   }
 
-  complete(): void {
-    this.modal.open(CompleteComponent);
+  send(): void {
+    const provider = { provide: COMPLETE_TEXT_TOKEN, useValue: '送信が完了しました' };
+    this.modal.open(CompleteComponent, provider);
   }
 }
