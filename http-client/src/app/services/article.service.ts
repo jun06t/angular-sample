@@ -9,6 +9,6 @@ export class ArticleService {
   constructor(private http: HttpClient) { }
 
   get(id: string): Observable<Article> {
-    return this.http.get('http://jsonplaceholder.typicode.com/posts/' + id);
+    return this.http.get<Article>('http://jsonplaceholder.typicode.com/posts/' + id);
   }
 }
