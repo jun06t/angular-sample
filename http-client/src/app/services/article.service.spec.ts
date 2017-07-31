@@ -23,11 +23,7 @@ describe('ArticleService', () => {
     });
   });
 
-  it('should be created', inject([ArticleService], (service: ArticleService) => {
-    expect(service).toBeTruthy();
-  }));
-
-  fdescribe('#get', () => {
+  describe('#get', () => {
     const mockResponse: Article = {
       id: 0,
       userId: 1,
