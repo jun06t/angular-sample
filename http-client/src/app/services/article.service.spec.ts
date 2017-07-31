@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { Http, BaseRequestOptions, Response, ResponseOptions, Request, RequestMethod } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { ArticleService } from './article.service';
 import { Article } from './article';
@@ -10,15 +9,9 @@ describe('ArticleService', () => {
     TestBed.configureTestingModule({
       providers: [
         ArticleService,
-        {
-          provide: Http,
-          useFactory: (mockBackend, options) => {
-            return new Http(mockBackend, options);
-          },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions
+      ],
+      imports: [
+        HttpClientTestingModule,
       ]
     });
   });
@@ -31,24 +24,19 @@ describe('ArticleService', () => {
       body: 'mock body',
     }
 
-    it('should get article', inject([ArticleService, MockBackend], (service, mockBackend) => {
-      let req: Request;
-      mockBackend.connections.subscribe((connection) => {
-        connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(mockResponse)
-        })));
-        req = connection.request;
-      });
-
+    it('should get article', inject([ArticleService, HttpTestingController], (service, httpMock) => {
       service.get('0').subscribe((resp: Article) => {
-        expect(req.url).toBe('http://jsonplaceholder.typicode.com/posts/0');
-        expect(req.method).toBe(RequestMethod.Get);
-
         expect(resp.id).toBe(0);
         expect(resp.userId).toBe(1);
         expect(resp.title).toBe('mock title');
         expect(resp.body).toBe('mock body');
       });
+
+      const req = httpMock.expectOne('http://jsonplaceholder.typicode.com/posts/0');
+      expect(req.request.method).toEqual('GET');
+
+      req.flush(mockResponse);
+      httpMock.verify();
     }));
   });
 });
