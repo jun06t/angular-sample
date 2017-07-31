@@ -7,7 +7,7 @@ import { ArticleService, Article } from './services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public article: Article;
+  public article = new Article();
 
   constructor(private articleService: ArticleService) { }
 

@@ -1,0 +1,15 @@
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  width: 600px;
+  text-align: center
+}
+
+.body {
+  margin-top: 54px;
+  width: 800px;
+  text-align: center
+}
