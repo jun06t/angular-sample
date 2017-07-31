@@ -22,7 +22,7 @@ describe('ArticleService', () => {
       userId: 1,
       title: 'mock title',
       body: 'mock body',
-    }
+    };
 
     it('should get article', inject([ArticleService, HttpTestingController], (service, httpMock) => {
       service.get('0').subscribe((resp: Article) => {
