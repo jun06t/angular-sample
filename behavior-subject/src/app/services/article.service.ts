@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/do';
 
 import { Article } from './article';
 
@@ -23,6 +24,9 @@ export class ArticleService {
   }
 
   fetch(id: string): Observable<Article> {
-    return this.http.get<Article>('http://jsonplaceholder.typicode.com/posts/' + id);
+    return this.http.get<Article>('http://jsonplaceholder.typicode.com/posts/' + id)
+      .do(article => {
+        this.articleSource.next(article);
+      });
   }
 }
