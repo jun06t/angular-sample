@@ -12,9 +12,9 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/core": "2.2.1",
+    "@angular/common": "20.3.27",
+    "@angular/compiler": "20.3.27",
+    "@angular/core": "20.3.25",
     "@angular/forms": "2.2.1",
     "@angular/http": "2.2.1",
     "@angular/platform-browser": "2.2.1",
